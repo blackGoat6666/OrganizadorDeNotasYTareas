@@ -45,6 +45,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
     public function notes()
     {
         return $this->hasMany(Note::class);
@@ -53,5 +54,10 @@ class User extends Authenticatable
     public function shoppingList()
     {
         return $this->hasMany(ShoppingList::class);
+    }
+
+    public function taskList()
+    {
+        return $this->hasMany(TaskList::class);
     }
 }
