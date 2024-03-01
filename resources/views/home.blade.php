@@ -8,6 +8,7 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <span>Notas</span>
                 <a href="#" class="btn btn-primary">Crear Nota</a>
+                <a href="{{ route('notes.index') }}" class="btn btn-primary">Ver todas</a>
             </div>
 
             <div class="body">
@@ -23,16 +24,14 @@
             </div>
             
 
-            <!-- Agregar enlaces de paginación -->
-            <div class="d-flex justify-content-center">
-                {{ $notes->links('pagination::bootstrap-4') }}
-            </div>
+            
         </div>
 
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <span>Lista de compras</span>
                 <a href="#" class="btn btn-primary">Crear lista</a>
+                <a href="#" class="btn btn-primary">Ver</a>
             </div>
 
             <div class="body">

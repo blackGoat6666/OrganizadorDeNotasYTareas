@@ -29,9 +29,9 @@ class HomeController extends Controller
         $userId = Auth::id();
         // También puedes acceder al modelo completo del usuario
         $user = Auth::user();
-        $notes = $user->notes()->paginate(3);
-        $shoppinglists = $user->shoppingList()->with('items')->paginate(3);
-        $tasklists = $user->taskList()->with('tasks')->paginate(3);
+        $notes = $user->notes()->paginate(2);
+        $shoppinglists = $user->shoppingList()->with('items')->paginate(2);
+        $tasklists = $user->taskList()->with('tasks')->paginate(2);
 
         // Hacer algo con el ID o el modelo del usuario aquí
 

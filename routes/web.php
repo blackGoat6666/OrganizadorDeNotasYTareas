@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
+
+Route::get('/notes/create', [DragonController::class, 'create'])->name('note.create');
+
+Route::post('/notes/{note}', [DragonController::class, 'store'])->name('note.store');
+
+Route::get('/notes/{note}/edit', [NoteController::class, 'edit', '{note}'])->name('note.edit');
+
+Route::put('/notes/{note}', [NoteController::class, 'update'])->name('note.update');
+
+Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
+
+
