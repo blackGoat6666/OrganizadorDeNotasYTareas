@@ -9,7 +9,7 @@ class Note extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text'];
+    protected $fillable = ['text', 'user_id'];
 
     public function user() {
         return $this->belongsTo('App\Models\User');

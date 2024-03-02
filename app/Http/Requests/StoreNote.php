@@ -22,7 +22,17 @@ class StoreNote extends FormRequest
     public function rules(): array
     {
         return [
-            //
         ];
+    }
+
+    public function persist(): Note
+    {
+        $user = $this->user(); // Obtener el usuario autenticado
+        $note = new Note(); // Crear una nueva instancia de la clase Note
+        $note->text = $this->text; // Establecer el texto de la nota
+        $note->user_id = $user->id; // Establecer el ID del usuario en la nota
+        $note->save(); // Guardar la nota en la base de datos
+
+        return $note; // Devolver la nota guardada
     }
 }

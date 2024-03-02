@@ -20,14 +20,12 @@ class NoteController extends Controller
         return view('notes.index', compact('notes', 'editingNoteId'));
     }
 
-    public function create() {
-    }
-
     public function store(Request $request) {
-        $user->notes()->create([
-            'text' => $request->text,
-        ]);
-    
+        $user = Auth::user(); // Obtener el usuario autenticado
+        $noteData = $request->all(); // Obtener todos los datos de la solicitud
+        $noteData['user_id'] = $user->id; // Asignar el ID del usuario al campo user_id
+
+        $note = Note::create($noteData); 
         return redirect()->route('notes.index');
     }
 

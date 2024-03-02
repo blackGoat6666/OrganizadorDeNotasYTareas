@@ -24,9 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
 
-Route::get('/notes/create', [DragonController::class, 'create'])->name('note.create');
-
-Route::post('/notes/{note}', [DragonController::class, 'store'])->name('note.store');
+Route::post('/notes', [NoteController::class, 'store'])->name('note.store');
 
 Route::get('/notes/{note}/edit', [NoteController::class, 'edit', '{note}'])->name('note.edit');
 
