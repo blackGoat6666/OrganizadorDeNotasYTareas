@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ShoppingListController;
+use App\Http\Controllers\TaskListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
+Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
 
 Route::post('/notes', [NoteController::class, 'store'])->name('note.store');
 
@@ -32,4 +34,11 @@ Route::put('/notes/{note}', [NoteController::class, 'update'])->name('note.updat
 
 Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
+Route::get('/shoppinglists', [ShoppingListController::class, 'index'])->name('shoppinglist.index');
+
+Route::delete('/shoppinglists/{shopinglist}', [ShoppingListController::class, 'destroy'])->name('shopinglist.destroy');
+
+Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklist.index');
+
+Route::delete('/tasklists/{tasklist}', [TaskListController::class, 'destroy'])->name('tasklist.destroy');
 
