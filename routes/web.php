@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ShoppingListController;
 use App\Http\Controllers\TaskListController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,6 @@ Route::delete('/shoppinglists/{shopinglist}', [ShoppingListController::class, 'd
 Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklist.index');
 
 Route::delete('/tasklists/{tasklist}', [TaskListController::class, 'destroy'])->name('tasklist.destroy');
+
+Route::delete('/shoppinglists/deleteItem/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
 
