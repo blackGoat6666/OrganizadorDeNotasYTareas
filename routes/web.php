@@ -37,6 +37,12 @@ Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.
 
 Route::get('/shoppinglists', [ShoppingListController::class, 'index'])->name('shoppinglist.index');
 
+Route::post('/shoppinglists', [ShoppingListController::class, 'store'])->name('shoppinglist.store');
+
+Route::get('/shoppinglists/{shoppinglist}/edit', [ShoppingListController::class, 'edit', '{shoppinglist}'])->name('shoppinglist.edit');
+
+Route::put('/shoppinglists/{shoppinglist}/update', [ShoppingListController::class, 'update'])->name('shoppinglist.update');
+
 Route::delete('/shoppinglists/{shopinglist}', [ShoppingListController::class, 'destroy'])->name('shopinglist.destroy');
 
 Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklist.index');

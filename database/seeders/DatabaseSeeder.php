@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(4)->create();
         \App\Models\Note::factory(10)->create();
-        \App\Models\ShoppingList::factory(4)->create();
-        \App\Models\TaskList::factory(4)->create();
-        \App\Models\Item::factory(12)->create();
-        \App\Models\Task::factory(12)->create();
+        \App\Models\ShoppingList::factory(7)->create();
+        \App\Models\TaskList::factory(7)->create();
+        \App\Models\Item::factory(21)->create();
+        \App\Models\Task::factory(21)->create();
 
 
         // \App\Models\User::factory()->create([

@@ -9,6 +9,7 @@ class ShoppingList extends Model
 {
     use HasFactory;
     protected $table = 'shoppinglists';
+    protected $fillable = ['date', 'user_id'];
 
     public function user() {
         return $this->belongsTo('App\Models\User');
