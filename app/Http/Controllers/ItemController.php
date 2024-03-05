@@ -14,14 +14,6 @@ class ItemController extends Controller
         $this->middleware('auth');
     }
 
-    public function edit(Item $item) {
-        $editingItemId = $item->id;
-        $editingShoppingListId = null;
-        $user = Auth::user();
-        $shoppinglists = $user->shoppingList()->with('items')->paginate(4);
-        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId', 'editingItemId'));
-    }
-
     public function store(Request $request) {
         $item = Item::create([
             'name'=>$request->name,
@@ -32,6 +24,14 @@ class ItemController extends Controller
         ]);
         $item->save();
         return redirect()->route('shoppinglist.index');
+    }
+
+    public function edit(Item $item) {
+        $editingItemId = $item->id;
+        $editingShoppingListId = null;
+        $user = Auth::user();
+        $shoppinglists = $user->shoppingList()->with('items')->paginate(4);
+        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId', 'editingItemId'));
     }
 
     public function update(Request $request, Item $item) {

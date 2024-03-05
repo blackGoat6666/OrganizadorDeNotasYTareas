@@ -5,6 +5,7 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ShoppingListController;
 use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,16 @@ Route::delete('/shoppinglists/deleteItem/{item}', [ItemController::class, 'destr
 
 Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklist.index');
 
+Route::post('/tasklists', [TaskListController::class, 'store'])->name('tasklist.store');
+
 Route::delete('/tasklists/{tasklist}', [TaskListController::class, 'destroy'])->name('tasklist.destroy');
+
+Route::post('/tasklists/storeTask', [TaskController::class, 'store'])->name('task.store');
+
+Route::get('/tasklists/{task}/editTask', [TaskController::class, 'edit', '{task}'])->name('task.edit');
+
+Route::put('/tasklists/{task}/updateTask', [TaskController::class, 'update'])->name('task.update');
+
+Route::delete('/tasklists/deleteTask/{task}', [TaskController::class, 'destroy'])->name('task.destroy');
 
 
