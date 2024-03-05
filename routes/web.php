@@ -45,9 +45,16 @@ Route::put('/shoppinglists/{shoppinglist}/update', [ShoppingListController::clas
 
 Route::delete('/shoppinglists/{shopinglist}', [ShoppingListController::class, 'destroy'])->name('shopinglist.destroy');
 
+Route::post('/shoppinglists/storeItem', [ItemController::class, 'store'])->name('item.store');
+
+Route::get('/shoppinglists/{item}/editItem', [ItemController::class, 'edit', '{item}'])->name('item.edit');
+
+Route::put('/shoppinglists/{item}/updateItem', [ItemController::class, 'update'])->name('item.update');
+
+Route::delete('/shoppinglists/deleteItem/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
+
 Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklist.index');
 
 Route::delete('/tasklists/{tasklist}', [TaskListController::class, 'destroy'])->name('tasklist.destroy');
 
-Route::delete('/shoppinglists/deleteItem/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
 

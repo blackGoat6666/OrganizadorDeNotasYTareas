@@ -19,7 +19,8 @@ class ShoppingListController extends Controller
         $user = Auth::user();
         $shoppinglists = $user->shoppingList()->with('items')->paginate(4);
         $editingShoppingListId = null;
-        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId'));
+        $editingItemId = null;
+        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId', 'editingItemId'));
     }
 
     public function store() {
@@ -34,9 +35,10 @@ class ShoppingListController extends Controller
 
     public function edit(ShoppingList $shoppinglist) {
         $editingShoppingListId = $shoppinglist->id;
+        $editingItemId = null;
         $user = Auth::user();
         $shoppinglists = $user->shoppingList()->with('items')->paginate(4);
-        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId'));
+        return view('shoppinglist.index', compact('shoppinglists', 'editingShoppingListId', 'editingItemId'));
     }
 
     public function update(Request $request, ShoppingList $shoppinglist) {
